@@ -1,0 +1,26 @@
+name: 'Android Version Bump'
+author: 'oflynned'
+description: 'GitHub action for bumping Gradle versions using semantic commits'
+runs:
+  using: docker
+  image: Dockerfile
+branding:
+  icon: chevron-up
+  color: blue
+inputs:
+  tag-prefix:
+    required: false
+    description: 'Prefix to add to git tag'
+  skip-ci:
+    required: false
+    description: 'Affix [skip-ci] so that a cyclical ci loop does not happen'
+    default: 'true'
+  commit-message:
+    required: false
+    description: 'Commit message when a release is successful'
+  build-number:
+    required: false
+    description: 'Build number to generated from ci to show as part of the version'
+outputs:
+  newTag:
+    description: 'The newly created tag'
